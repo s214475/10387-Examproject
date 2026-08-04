@@ -1,0 +1,9 @@
+#### 
+
+# 1 cd ~/10387
+# 2 source .venv/bin/activate
+# 3 export PATH="$PWD/.uv-tool/bin:$PATH"
+# 4 git init
+# 5 git status
+# 6 git log
+# git commit -m "Add feature this and that" 

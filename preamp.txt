@@ -1,0 +1,24 @@
+# 1 All contents of the course can be found
+https://github.com/qpit/sciqis
+
+# 2 Enter Folder
+cd ~/10387
+
+# 3 create mini env
+python3 -m venv .uv-tool
+
+# 4 install uv
+.uv-tool/bin/python -m pip install uv
+
+# 5 create env using uv
+.uv-tool/bin/uv init --bare
+.uv-tool/bin/uv venv .venv
+
+# 6 activate env [must be done every time]
+source .venv/bin/activate
+
+# 7 Connect uv from .uv-tool to terminal [must be done every time]
+export PATH="$PWD/.uv-tool/bin:$PATH"
+
+# 8 Create jupyter kernel
+uv run python -m ipykernel install --user --name "sciqis" --display-name "Python (sciqis)"
