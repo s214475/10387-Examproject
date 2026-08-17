@@ -22,3 +22,12 @@ export PATH="$PWD/.uv-tool/bin:$PATH"
 
 # 8 Create jupyter kernel
 uv run python -m ipykernel install --user --name "sciqis" --display-name "Python (sciqis)"
+
+# 9 Install project packages
+uv add ase
+
+cd /zhome/f1/0/167759/10387
+CC=g++ CXX=g++ ./.uv-tool/bin/uv add gpaw
+
+uv add abtem
+uv add quscope
