@@ -1,0 +1,59 @@
+diameter = 48.15620629885753 atoms = 4045
+saved final model: /zhome/f1/0/167759/10387/data/models/Pt5nm_cov.traj
+cell lengths = [149.53061676 152.6192126  149.53061676]
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 29144933: <create_pt_cluster> in cluster <dcc> Done
+
+Job <create_pt_cluster> was submitted from host <n-62-27-21> by user <s214475> in cluster <dcc> at Wed Aug 19 00:39:01 2026
+Job was executed on host(s) <n-62-11-65>, in queue <hpc>, as user <s214475> in cluster <dcc> at Wed Aug 19 00:39:02 2026
+</zhome/f1/0/167759> was used as the home directory.
+</zhome/f1/0/167759/10387> was used as the working directory.
+Started at Wed Aug 19 00:39:02 2026
+Terminated at Wed Aug 19 00:39:45 2026
+Results reported at Wed Aug 19 00:39:45 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J create_pt_cluster
+#BSUB -q hpc
+#BSUB -W 01:00
+#BSUB -n 1
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=4000MB]"
+#BSUB -o /zhome/f1/0/167759/10387/data/logs/create_pt_cluster_%J.out
+#BSUB -e /zhome/f1/0/167759/10387/data/logs/create_pt_cluster_%J.err
+
+cd /zhome/f1/0/167759/10387
+source .venv/bin/activate
+
+python /zhome/f1/0/167759/10387/python/create_pt_cluster.py
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   39.25 sec.
+    Max Memory :                                 210 MB
+    Average Memory :                             210.00 MB
+    Total Requested Memory :                     4000.00 MB
+    Delta Memory :                               3790.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   43 sec.
+    Turnaround time :                            44 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/f1/0/167759/10387/data/logs/create_pt_cluster_29144933.err> for stderr output of this job.
+

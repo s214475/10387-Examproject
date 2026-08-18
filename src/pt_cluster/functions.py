@@ -5,7 +5,9 @@ from ase.io import read, write
 from ase.cluster import wulff_construction
 abtem.config.set({"precision": "float32"})
 
-def Zoneaxis4(family_plane):
+lc = 3.9236
+
+def Zoneaxis3(family_plane):
     '''
     Zoneaxis: A function that find the rotation angle around the x and y-axis to make an abitrary zoneaxis face positive z.
     
@@ -42,10 +44,80 @@ def Zoneaxis4(family_plane):
         # phi is the rotation angle around the negative y-axis, hence the (-), and rotates the 2D vector into the z-axis. 
         phi = -round(np.degrees(np.arcsin(v1[0])),3)
 
-    if v1[0] == 0 and v1[1] == 0 and v1[2] == -1:
-        phi = -180
-
     return (theta, phi)
+
+def Zoneaxis4(family_plane):
+    '''
+    Zoneaxis: Find the rotation angles around the x- and y-axis required
+    to rotate a zone-axis vector [h, k, l] onto the positive z-axis.
+
+    Input
+    -----
+    family_plane : array-like
+        Zone axis / Miller index vector [h, k, l].
+
+    Output
+    ------
+    theta : float
+        Rotation angle around the positive x-axis, in degrees.
+
+    phi : float
+        Rotation angle around the negative y-axis, in degrees.
+
+    Notes
+    -----
+    Assumes a cubic unit cell, so [h,k,l] can be treated directly
+    as Cartesian components.
+
+    The rotation is performed in two steps:
+
+        1. Rotate around x by theta:
+           [x, y, z] -> [x, 0, z']
+
+        2. Rotate around -y by phi:
+           [x, 0, z'] -> [0, 0, 1]
+
+    By: Johannes Varnes
+    '''
+
+    # Convert input to numpy array
+    family_plane = np.asarray(family_plane, dtype=float)
+
+    # Check that input contains exactly 3 components
+    if family_plane.shape != (3,):
+        raise ValueError("family_plane must contain exactly 3 values: [h, k, l]")
+
+    # Check that the vector is not zero
+    norm = np.linalg.norm(family_plane)
+
+    if norm == 0:
+        raise ValueError("The zone axis [0, 0, 0] is not valid.")
+
+    # Normalize the zone axis
+    v1 = family_plane / norm
+
+    # ---------------------------------------------------------
+    # Step 1:
+    # Rotation around +x to bring the vector into the xz-plane
+    # ---------------------------------------------------------
+
+    theta = np.degrees(np.arctan2(v1[1], v1[2]))
+
+    # ---------------------------------------------------------
+    # Step 2:
+    # Rotation around -y to bring the vector onto +z
+    # ---------------------------------------------------------
+
+    # Length of the yz projection
+    yz_length = np.sqrt(v1[1]**2 + v1[2]**2)
+
+    phi = -np.degrees(np.arctan2(v1[0], yz_length))
+
+    # Round to 3 decimal places
+    theta = round(theta, 3)
+    phi = round(phi, 3)
+
+    return theta, phi
 
 def find_ontop_index(atom):
     '''
