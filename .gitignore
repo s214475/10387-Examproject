@@ -217,3 +217,8 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 .uv-tool/
+
+# Generated simulation output
+data/exit_waves/
+data/logs/
+*.zarr/

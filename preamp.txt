@@ -1,3 +1,6 @@
+# 0 ALWAYS DO THIS FIRST ON HPC 
+linuxsh 
+
 # 1 All contents of the course can be found
 https://github.com/qpit/sciqis
 

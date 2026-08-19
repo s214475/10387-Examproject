@@ -2,11 +2,6 @@ from pathlib import Path
 import os
 import time
 import logging
-
-os.environ.setdefault("OMP_NUM_THREADS", "1")
-os.environ.setdefault("MKL_NUM_THREADS", "1")
-os.environ.setdefault("FFTW_NUM_THREADS", "1")
-
 import abtem
 from ase.io import read
 
@@ -24,24 +19,13 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)s | %(message)s",
 )
 
-n_workers = int(os.environ.get("LSB_DJOB_NUMPROC", "4"))
-
-abtem.config.set({
-    "dask.scheduler": "threads",
-    "mkl.threads": 1,
-    "fftw.threads": 1,
-})
-
-logging.info(f"Using {n_workers} workers")
-logging.info(f"Running on host: {os.uname().nodename}")
-
 lc = 3.92  # replace with your actual value if different
 
 atom = read(model_dir / "Pt5nm_cov.traj")
 
 energy = 300e3
 slice_thickness = lc / 8
-sampling = lc / 256
+sampling = lc / 128
 
 plane_wave = abtem.PlaneWave(energy=energy)
 
@@ -55,16 +39,13 @@ atom_pot = abtem.Potential(
 logging.info("Starting multislice")
 t0 = time.perf_counter()
 
-atom_ewave = plane_wave.multislice(atom_pot).compute(
-    scheduler="threads",
-    num_workers=n_workers,
-)
+atom_ewave = plane_wave.multislice(atom_pot).compute()
 
 elapsed = time.perf_counter() - t0
 logging.info(f"Finished multislice in {elapsed / 60:.2f} min")
 
-output = exitwave_dir / "Pt5nm_ewave.zarr"
-atom_ewave.to_zarr(str(output), overwrite=True)
+output = exitwave_dir / "Pt5nm_ewave_test.zarr"
+atom_ewave.to_zarr(output, overwrite=True)
 
 logging.info(f"Saved exit wave to {output}")
 print(f"Finished in {elapsed / 60:.2f} min")
