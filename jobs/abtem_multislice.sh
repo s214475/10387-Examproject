@@ -11,4 +11,4 @@
 cd /zhome/f1/0/167759/10387
 source .venv/bin/activate
 
-python /zhome/f1/0/167759/10387/python/multislice.py
+python /zhome/f1/0/167759/10387/python/abtem_multislice.py
