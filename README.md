@@ -1,10 +1,12 @@
----
 # 10387-Examproject
---- 
+
+This repository contains my mini project for DTU course **10387**.
+Please have mercy on me, only look in jupyter notebook Notebooks/tutorial.ipynb
 
 ---
 ## WorkFlow
 ---
+
 10387/
 │
 ├── data/
@@ -51,12 +53,17 @@ The simulations are designed to run on DTU's HPC infrastructure using the LSF ba
 
 The project uses a Python virtual environment located at:
 
-> .venv/
-
+```bash
+cd ~/10387
+```
 The environment is activated with:
 
-> source ~/10387/.venv/bin/activate
+```bash
+source .venv/bin/activate
+```
 
 To be allowed to use uv do
 
-> export PATH="$PWD/.uv-tool/bin:$PATH"
+```bash
+export PATH="$PWD/.uv-tool/bin:$PATH"
+```
