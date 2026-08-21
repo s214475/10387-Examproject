@@ -1,9 +1,9 @@
 # 10387-Examproject
 
 This repository contains my exam project for DTU course **10387**.
-Please have mercy on me, only look in jupyter notebook the notebooks/tutorial.ipynb it is a jungle of thoughts.
-The folder is used to verify codes/functions.
-Too investigae the py files:  should be here inside 
+Please have mercy on me, only look in the [turtorial notebook](https://github.com/s214475/10387-Examproject/blob/main/Notebooks/tutorial.ipynb)
+The other notebook is a my dev notes, and is incoherent.
+If you are not working on the cluster, please ignore the shell files inside the jobs folder
 
 ---
 ## Download the repository
@@ -53,7 +53,7 @@ python/
 
 src/                            
     __init__.py                 Used to define functions inside the folder as a package.
-    functions.py                Add Bachelor thesis functions as a package in the env.
+    functions.py                Add Bachelor thesis functions as a package inside the env.
 ```
 
 ---
