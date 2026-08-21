@@ -1,0 +1,162 @@
+==================================================
+QuScope multislice
+==================================================
+Host:
+n-62-30-23
+Date:
+Wed Aug 19 19:52:55 CEST 2026
+LSF CPUs:
+4
+Python:
+/zhome/f1/0/167759/10387/.venv/bin/python
+Python 3.14.6
+==================================================
+======================================================================
+QuScope quantum multislice
+======================================================================
+Loading potential:
+  /zhome/f1/0/167759/10387/data/models/Pt5nm_cov_quscope.npz
+
+Potential:
+  shape          = (54, 256, 256)
+  number slices  = 54
+  grid size      = 256
+  pixel size     = 0.250000 Å
+  slice thickness= 1.000000 Å
+  field of view  = 64.000 Å
+
+Simulation parameters:
+  acceleration voltage = 300 keV
+  grid size             = 256
+  pixel size            = 0.250000 Å
+  slice thickness       = 1.000000 Å
+  defocus               = -500 Å
+  Cs                    = 1.3
+
+Building QuScope circuit...
+Circuit construction: 0.01 s
+
+======================================================================
+STARTING FULL QUANTUM MULTISLICE
+======================================================================
+
+======================================================================
+SIMULATION COMPLETE
+======================================================================
+Simulation time: 130.12 min
+
+Result keys:
+dict_keys(['statevector', 'wave_function', 'amplitude', 'phase', 'intensity'])
+  statevector    : shape=(65536,), dtype=complex128
+  wave_function  : shape=(256, 256), dtype=complex128
+  amplitude      : shape=(256, 256), dtype=float64
+  phase          : shape=(256, 256), dtype=float64
+  intensity      : shape=(256, 256), dtype=float64
+
+Saving result...
+Saved to:
+  /zhome/f1/0/167759/10387/data/exit_waves/Pt5nm_quscope_result.npz
+Save time: 0.16 s
+
+======================================================================
+DONE
+======================================================================
+==================================================
+Finished with status: 0
+Date:
+Wed Aug 19 22:03:07 CEST 2026
+==================================================
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 29153830: <quscope_ms> in cluster <dcc> Done
+
+Job <quscope_ms> was submitted from host <n-62-30-3> by user <s214475> in cluster <dcc> at Wed Aug 19 19:52:53 2026
+Job was executed on host(s) <4*n-62-30-23>, in queue <hpc>, as user <s214475> in cluster <dcc> at Wed Aug 19 19:52:54 2026
+</zhome/f1/0/167759> was used as the home directory.
+</zhome/f1/0/167759/10387> was used as the working directory.
+Started at Wed Aug 19 19:52:54 2026
+Terminated at Wed Aug 19 22:03:07 2026
+Results reported at Wed Aug 19 22:03:07 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J quscope_ms
+#BSUB -q hpc
+#BSUB -n 4
+#BSUB -W 180
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=16000]"
+#BSUB -o data/logs/quscope_%J.out
+#BSUB -e data/logs/quscope_%J.err
+
+
+# ============================================================
+# Environment
+# ============================================================
+
+module load python3/3.11.13
+
+source ~/10387/.venv/bin/activate
+
+
+# ============================================================
+# Threading
+# ============================================================
+
+export OMP_NUM_THREADS=4
+export MKL_NUM_THREADS=4
+export OPENBLAS_NUM_THREADS=4
+export NUMEXPR_NUM_THREADS=4
+
+
+# ============================================================
+# Run
+# ============================================================
+
+echo "=================================================="
+echo "QuScope multislice"
+echo "=================================================="
+
+echo "Host:"
+hostname
+
+echo "Date:"
+date
+
+echo "LSF CPUs:"
+echo "$LSB_DJOB_NUMPROC"
+
+echo "Python:"
+which python
+
+(... more ...)
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   31100.00 sec.
+    Max Memory :                                 2124 MB
+    Average Memory :                             1480.03 MB
+    Total Requested Memory :                     64000.00 MB
+    Delta Memory :                               61876.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                11
+    Run time :                                   7813 sec.
+    Turnaround time :                            7814 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <data/logs/quscope_29153830.err> for stderr output of this job.
+

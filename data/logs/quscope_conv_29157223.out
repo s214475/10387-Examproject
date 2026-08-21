@@ -1,0 +1,108 @@
+==================================================
+QuScope 3-slice convergence test
+==================================================
+Host:
+n-62-28-35
+Date:
+Thu Aug 20 00:41:29 CEST 2026
+LSF CPUs:
+4
+Python:
+/zhome/f1/0/167759/10387/.venv/bin/python
+Python 3.14.6
+==================================================
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 29157223: <quscope_conv> in cluster <dcc> Exited
+
+Job <quscope_conv> was submitted from host <n-62-30-3> by user <s214475> in cluster <dcc> at Thu Aug 20 00:41:28 2026
+Job was executed on host(s) <4*n-62-28-35>, in queue <hpc>, as user <s214475> in cluster <dcc> at Thu Aug 20 00:41:29 2026
+</zhome/f1/0/167759> was used as the home directory.
+</zhome/f1/0/167759/10387> was used as the working directory.
+Started at Thu Aug 20 00:41:29 2026
+Terminated at Thu Aug 20 12:41:30 2026
+Results reported at Thu Aug 20 12:41:30 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J quscope_conv
+#BSUB -q hpc
+#BSUB -n 4
+#BSUB -W 720
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=16000]"
+#BSUB -o data/logs/quscope_conv_%J.out
+#BSUB -e data/logs/quscope_conv_%J.err
+
+# ============================================================
+# Environment
+# ============================================================
+
+module load python3/3.11.13
+
+source ~/10387/.venv/bin/activate
+
+# ============================================================
+# Threading
+# ============================================================
+
+export OMP_NUM_THREADS=4
+export MKL_NUM_THREADS=4
+export OPENBLAS_NUM_THREADS=4
+export NUMEXPR_NUM_THREADS=4
+
+# ============================================================
+# Job information
+# ============================================================
+
+echo "=================================================="
+echo "QuScope 3-slice convergence test"
+echo "=================================================="
+
+echo "Host:"
+hostname
+
+echo "Date:"
+date
+
+echo "LSF CPUs:"
+echo "$LSB_DJOB_NUMPROC"
+
+echo "Python:"
+which python
+python --version
+
+echo "=================================================="
+
+(... more ...)
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time :                                   172348.00 sec.
+    Max Memory :                                 1781 MB
+    Average Memory :                             1495.26 MB
+    Total Requested Memory :                     64000.00 MB
+    Delta Memory :                               62219.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                11
+    Run time :                                   43201 sec.
+    Turnaround time :                            43202 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <data/logs/quscope_conv_29157223.err> for stderr output of this job.
+

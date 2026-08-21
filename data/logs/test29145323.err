@@ -1,0 +1,16 @@
+tasks:  75%|███████▌  | 3/4 [44:54<14:58, 898.05s/it]tasks: 100%|██████████| 4/4 [44:54<00:00, 673.54s/it]
+Traceback (most recent call last):
+  File "/zhome/f1/0/167759/10387/python/test.py", line 48, in <module>
+    atom_ewave.to_zarr(output, overwrite=True)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/zhome/f1/0/167759/10387/.venv/lib/python3.14/site-packages/abtem/array.py", line 1378, in to_zarr
+    return ComputableList([self]).to_zarr(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        url=url, compute=compute, overwrite=overwrite, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/zhome/f1/0/167759/10387/.venv/lib/python3.14/site-packages/abtem/array.py", line 308, in to_zarr
+    is_zip = url.endswith(".zip")
+             ^^^^^^^^^^^^
+AttributeError: 'PosixPath' object has no attribute 'endswith'

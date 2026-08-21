@@ -1,0 +1,56 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 29145323: <abtem_multislice> in cluster <dcc> Exited
+
+Job <abtem_multislice> was submitted from host <n-62-27-21> by user <s214475> in cluster <dcc> at Wed Aug 19 08:54:18 2026
+Job was executed on host(s) <32*n-62-12-4>, in queue <hpc>, as user <s214475> in cluster <dcc> at Wed Aug 19 08:54:18 2026
+</zhome/f1/0/167759> was used as the home directory.
+</zhome/f1/0/167759/10387> was used as the working directory.
+Started at Wed Aug 19 08:54:18 2026
+Terminated at Wed Aug 19 09:39:27 2026
+Results reported at Wed Aug 19 09:39:27 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J abtem_multislice
+#BSUB -q hpc
+#BSUB -W 06:00
+#BSUB -n 32
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=8000MB]"
+#BSUB -o /zhome/f1/0/167759/10387/data/logs/test%J.out
+#BSUB -e /zhome/f1/0/167759/10387/data/logs/test%J.err
+
+cd /zhome/f1/0/167759/10387
+source .venv/bin/activate
+
+python /zhome/f1/0/167759/10387/python/test.py
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   2708.92 sec.
+    Max Memory :                                 2215 MB
+    Average Memory :                             1749.60 MB
+    Total Requested Memory :                     256000.00 MB
+    Delta Memory :                               253785.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                8
+    Run time :                                   2709 sec.
+    Turnaround time :                            2709 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/f1/0/167759/10387/data/logs/test29145323.err> for stderr output of this job.
+

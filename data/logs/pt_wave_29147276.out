@@ -1,0 +1,58 @@
+Finished in 162.89 min
+Saved to /zhome/f1/0/167759/10387/data/exit_waves/Pt5nm_ewave.zarr
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 29147276: <abtem_multislice> in cluster <dcc> Done
+
+Job <abtem_multislice> was submitted from host <n-62-27-19> by user <s214475> in cluster <dcc> at Wed Aug 19 11:58:29 2026
+Job was executed on host(s) <32*n-62-12-65>, in queue <hpc>, as user <s214475> in cluster <dcc> at Wed Aug 19 12:30:33 2026
+</zhome/f1/0/167759> was used as the home directory.
+</zhome/f1/0/167759/10387> was used as the working directory.
+Started at Wed Aug 19 12:30:33 2026
+Terminated at Wed Aug 19 15:13:53 2026
+Results reported at Wed Aug 19 15:13:53 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -J abtem_multislice
+#BSUB -q hpc
+#BSUB -W 08:00
+#BSUB -n 32
+#BSUB -R "span[hosts=1]"
+#BSUB -R "rusage[mem=8000MB]"
+#BSUB -o /zhome/f1/0/167759/10387/data/logs/pt_wave_%J.out
+#BSUB -e /zhome/f1/0/167759/10387/data/logs/pt_wave_%J.err
+
+cd /zhome/f1/0/167759/10387
+source .venv/bin/activate
+
+python /zhome/f1/0/167759/10387/python/multislice.py
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   9792.27 sec.
+    Max Memory :                                 9580 MB
+    Average Memory :                             6981.09 MB
+    Total Requested Memory :                     256000.00 MB
+    Delta Memory :                               246420.00 MB
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                8
+    Run time :                                   9800 sec.
+    Turnaround time :                            11724 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </zhome/f1/0/167759/10387/data/logs/pt_wave_29147276.err> for stderr output of this job.
+
