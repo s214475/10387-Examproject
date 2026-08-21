@@ -12,6 +12,11 @@ if str(SRC) not in sys.path:
 
 from pt_cluster.functions import Zoneaxis4, stable_solution
 
+
+# ============================================================
+# Paths
+# ============================================================
+
 DATA = ROOT / "data"
 MODEL_DIR = DATA / "models"
 LOG_DIR = DATA / "logs"
@@ -24,6 +29,11 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
 )
+
+
+# ============================================================
+# Physical parameters
+# ============================================================
 
 surfaces = [
     (1, 0, 0), (1, 1, 0), (1, 1, 1),
@@ -42,6 +52,11 @@ esurf = [
 lc = 3.9236
 size = 4045
 zone_axis = (1, 1, 0)
+
+
+# ============================================================
+# Create Model
+# ============================================================
 
 Pt = wulff_construction(
     "Pt",
@@ -74,6 +89,11 @@ final_model_xyz = MODEL_DIR / "Pt5nm_cov.xyz"
 
 write(final_model, atom)
 write(final_model_xyz, atom)
+
+
+# ============================================================
+# Log Prints
+# ============================================================
 
 logging.info("Zone axis %s rotation: theta=%s, phi=%s", zone_axis, theta, phi)
 logging.info("Final cell lengths: %s", atom.cell.lengths())

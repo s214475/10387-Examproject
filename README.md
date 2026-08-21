@@ -31,8 +31,8 @@ uv sync
 ---
 ```bash
 Notebooks/
-    jungle.ipynb                Do not open this, it is very weird oacked for data
-    tutorial.ipynb              nly open this notebook, contains documentaion of the project. 
+    jungle.ipynb                Do not open this, it is very weird packed for data
+    tutorial.ipynb              Only open this notebook, contains documentaion of the project. 
 
 data/
     exit_waves/                 List of exit waves used for the analysis
@@ -47,14 +47,13 @@ jobs/
 python/
     create_pt_cluster.py        Create an ase Pt NP with full CO coverage using bachelor thesis code.
     abtem_multislice.py         Calculate the clasic exit wave using abTEM and the ase model.
-    quscope_convergence         Investigate runtime for different field of view resolutions.
+    quscope_convergence.py      Investigate runtime for different field of view resolutions.
     quscope_multislice.py       Calculate the exit wave using quscope model.
     quscope_model.py            Translate ase structure into quscope potential model.
 
-src/                            Core Python source files and application logic.
-    __pycache__                 Build artifacts and Python bytecode is automatically .gitignore
+src/                            
     __init__.py                 Used to define functions inside the folder as a package.
-    functions.py                Add Bachelor thesis functions as a package for the env. 
+    functions.py                Add Bachelor thesis functions as a package for the env.
 ```
 
 ---

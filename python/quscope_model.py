@@ -114,6 +114,9 @@ print(f"z = {final_extent[2]:.2f} Å")
 
 kirkland = KirklandPotential()
 
+# Pt Kirkland parameterization used in the QuScope calculation.
+# Source: E. J. Kirkland, Advanced Computing in Electron Microscopy,
+# 2nd ed., Springer (2010), as provided through the abTEM parameter data.
 kirkland.params_dict["Pt"] = [
     [0.98469794, 2.73987079, 3.61696715],
     [0.160910839, 0.718971667, 12.9281016],

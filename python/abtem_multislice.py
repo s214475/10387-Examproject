@@ -35,7 +35,7 @@ abtem.config.set({
 logging.info(f"Using {n_workers} workers")
 logging.info(f"Running on host: {os.uname().nodename}")
 
-lc = 3.92  # replace with your actual value if different
+lc = 3.92  # lattice constant of Pt 
 
 atom = read(model_dir / "Pt5nm_cov.traj")
 
